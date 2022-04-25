@@ -1,7 +1,49 @@
-﻿@{
+﻿@model IEnumerable<ClarkCodingChallenge.Models.ContactModel>
+
+@{
     ViewData["Title"] = "Contacts Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-</div>
+    <p>
+    <a asp-action="AddContactIndex">Add New Contact</a>
+ </p> 
+    <table class="table">
+        <thead>
+            <tr>            
+                <th>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model) {       
+                <tr>     
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>            
+                </tr>    }
+        </tbody>
+    </table>
+ </div>
+ <div>@ViewBag.Message</div>
+
+
+
+
+
+
